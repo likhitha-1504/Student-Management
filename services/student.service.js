@@ -1,5 +1,5 @@
 const Student = require('../models/student.model');
-const { readData, writeData } = require('../utils/fileStorage');
+const { readData, writeData } = require('../utils/fs');
 const ApiError = require('../utils/ApiError');
 
 let students = readData(); // in-memory load

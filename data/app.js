@@ -1,11 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
-const logger = require('./middlewares/logger.middleware');
-const errorHandler = require('./middlewares/error.middleware');
-const notFound = require('./middlewares/notFound.middleware');
+app.use(cors({
+  origin: '*', // Frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
-const studentRoutes = require('./routes/student.routes');
+const logger = require('../middlewares/logger.middleware');
+const errorHandler = require('../middlewares/error.middleware');
+const notFound = require('../middlewares/notFound.middleware');
+
+const studentRoutes = require('../routes/student.routes');
 
 app.use(express.json());
 app.use(logger);
